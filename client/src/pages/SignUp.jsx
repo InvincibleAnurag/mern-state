@@ -6,7 +6,7 @@ export default function SignUp() {
   const [formData, setFormData] = useState({});
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false);
-  const [success, setSuccess] = useState(false);
+  const [success, setSuccess] = useState(null);
   const navigate = useNavigate();
 
   function handleChange(e) {
@@ -33,8 +33,8 @@ export default function SignUp() {
        setError(data.message);
        return;
      }
-     console.log(data);
-     setSuccess(data)
+    //  console.log(data);
+     setSuccess("Sign up successful")
      setError(null);
      setTimeout(()=>{
       navigate('/sign-in');
