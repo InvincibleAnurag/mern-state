@@ -6,7 +6,6 @@ export default function SignUp() {
   const [formData, setFormData] = useState({});
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false);
-  const [success, setSuccess] = useState(null);
   const navigate = useNavigate();
 
   function handleChange(e) {
@@ -33,13 +32,10 @@ export default function SignUp() {
        setError(data.message);
        return;
      }
-    //  console.log(data);
-     setSuccess("Sign up successful")
+    //  console.log(data);  
+     setLoading(false)
      setError(null);
-     setTimeout(()=>{
-      navigate('/sign-in');
-      setLoading(false)
-     },1000)
+     navigate('/sign-in');
       } catch (error) {
         setLoading(false);
         setError(error.message);
@@ -61,7 +57,6 @@ export default function SignUp() {
                  <span className='text-blue-700'>Sign in</span>
             </Link>
         </div>
-        {success && <p className='text-green-500 mt-5'>{success}</p>}
         {error && <p className='text-red-500 mt-5'>{error}</p>}
     </div>
   )
